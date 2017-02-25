@@ -5,3 +5,13 @@ services:
     command: npm start
     volumes:
       - .:/work
+    volumes_from:
+      - node_modules
+  node_modules:
+    # 'image' will vary depending on your docker-compose
+    # project name. You may need to run `docker-compose build web`
+    # before this works.
+    image: playwithlerna_web
+    command: echo 'a'
+    volumes:
+      - /work/node_modules
